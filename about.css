@@ -1,0 +1,123 @@
+body{
+    height: 100vh;
+    background-image: url(bg.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}
+.nav-bar ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0px;
+    margin:0px
+}
+.nav-bar a{
+    color: white;
+    text-decoration: none;
+    font-family: "Montserrat",Verdana, Geneva, Tahoma, sans-serif ;
+    font-weight: 500;
+    font-size: 2.5vh;
+    display: block;
+}
+.nav-bar li{
+    float:inline-start;
+    padding: 20px;
+}
+.nav-bar ul :hover{
+    font-size: 3.5vh;
+    transition: 0.4s;
+}
+p{
+    text-align: center;
+    color:rgb(255, 255, 255);
+    font-weight: 700;
+    font-family: "Montserrat",Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3vh;
+    padding: 0px;
+}
+p:hover{
+    font-size: 4vh;
+    transition : 1s;
+}
+
+.aboutbox{
+    padding: 20px;
+    backdrop-filter: blur(24px);
+    border-radius: 15px;
+    position:absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 10px 10px rgba(68, 67, 67, 0.6);
+    width: 80%;
+    max-width: 800px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.aboutbox:hover{
+    transform: translate(-50%, -53%);
+    box-shadow: 0px 15px 15px rgba(68, 67, 67, 0.7);
+}
+@media (max-width: 768px) {
+    .nav-bar ul {
+        flex-wrap: wrap;
+    }
+    
+    .nav-bar li {
+        padding: 10px;
+    }
+    
+    .nav-bar a {
+        font-size: 2vh;
+    }
+    
+    .nav-bar ul :hover {
+        font-size: 2.5vh;
+    }
+    
+    p {
+        font-size: 2.5vh;
+        margin: 10px 5px;
+    }
+    
+    p:hover {
+        font-size: 3vh;
+    }
+    
+    .aboutbox {
+        width: 90%;
+        padding: 15px 10px;
+        max-width: 500px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .nav-bar li {
+        padding: 5px;
+    }
+    
+    .nav-bar a {
+        font-size: 1.8vh;
+    }
+    
+    p {
+        font-size: 2.2vh;
+        margin: 8px 3px;
+    }
+    
+    p:hover {
+        font-size: 2.5vh;
+    }
+    
+    .aboutbox {
+        width: 95%;
+        padding: 10px 5px;
+    }
+}
