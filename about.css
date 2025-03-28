@@ -37,10 +37,6 @@ p{
     font-size: 3vh;
     padding: 0px;
 }
-p:hover{
-    font-size: 4vh;
-    transition : 1s;
-}
 
 .aboutbox{
     padding: 20px;

@@ -114,7 +114,7 @@ body{
 
 .project-title a {
     color: #ffffff;
-    text-decoration: none;
+    text-decoration: underline;
     transition: color 0.3s;
 }
 
@@ -234,7 +234,7 @@ body{
 
 .cert-details a {
     color: #ffffff;
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 600;
     font-size: 1.1em;
     margin-bottom: 5px;
