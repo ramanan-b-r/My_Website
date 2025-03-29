@@ -187,12 +187,15 @@ body{
 }
 
 .skill-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     background-color: rgba(255, 255, 255, 0.15);
     color: white;
     padding: 8px 15px;
     margin: 5px;
     border-radius: 6px;
-    display: inline-block;
     font-size: 2vh;
     font-weight: 500;
     transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
@@ -202,6 +205,20 @@ body{
     transform: translateY(-5px) scale(1.05);
     background-color: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.skill-item-pic {
+    margin-right: 10px;
+}
+
+.skill-item-pic img {
+    height: 30px;
+    width: 30px;
+    display: block;
+}
+
+.skill-item-text {
+    display: inline-block;
 }
 
 .skill-item.certification {
@@ -258,6 +275,7 @@ body{
 .cert-skills {
     font-style: italic;
 }
+
 /* Responsive design */
 @media (max-width: 768px) {
     .nav-bar ul {
