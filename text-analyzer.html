@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="styling/portfolio.css">
+    <script src="tracking.js"></script>
+    <style>        
+        .text-input {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgba(255, 255, 255, 0);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+          .analyze-button {
+            color: rgb(255, 255, 255);
+            border-color: white;
+            border-width: 1px;
+            border-radius: 20px;
+            text-align: center;
+            background-color: transparent;
+            border-style: solid;
+            text-shadow: 12;
+            padding: 10px;
+            font-weight: 700;
+            font-family: "Montserrat", Verdana, Tahoma, sans-serif;
+            font-size: larger;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        .analyze-button:hover {
+            box-shadow: 0px 10px 10px rgba(68, 67, 67, 0.5);
+            background-color: #C3B1E1;
+            transition: 0.4s;
+            font-size: 3vh;
+        }
+        
+        .analyze-button:focus {
+            box-shadow: 0px 10px 10px rgba(68, 67, 67, 0.5);
+            background-color: #9a6de2;
+        }
+        
+       
+        
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .result-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .result-section h3 {
+            margin-top: 0;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+        }
+        
+        .result-table th, .result-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .basic-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .stat-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .stat-value {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        
+        .stat-label {
+            color: white;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        p{
+
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="socials.html">Socials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="text-analyzer.html">Text Analyzer</a></li>
+        </ul>
+    </nav>
+
+    <div class="transparent-box">
+        <p class="page-title">Text Analyzer</p>
+          <div class="text-analyzer-container">
+            <p>After pressing analyze scroll down to view results</p>
+
+            <textarea id="textInput" class="text-input" placeholder="Paste your text here"></textarea>
+            <button id="analyzeButton" class="analyze-button">Analyze Text</button>
+            <div id="resultsContainer" class="results-container">
+                <div class="result-section">
+                    <h3>Basic Statistics</h3>
+                    <div class="basic-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="lettersCount">0</div>
+                            <div class="stat-label">Letters</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="wordsCount">0</div>
+                            <div class="stat-label">Words</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="spacesCount">0</div>
+                            <div class="stat-label">Spaces</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="newlinesCount">0</div>
+                            <div class="stat-label">Newlines</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="specialSymbolsCount">0</div>
+                            <div class="stat-label">Special Symbols</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Pronouns Count</h3>
+                    <table class="result-table" id="pronounsTable">
+                        <!-- Will be populated by JavaScript -->
+                    </table>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Prepositions Count</h3>
+                    <table class="result-table" id="prepositionsTable">
+                        <!-- Will be populated by JavaScript -->
+                    </table>
+                </div>
+                
+                <div class="result-section">
+                    <h3>Indefinite Articles Count</h3>
+                    <table class="result-table" id="articlesTable">
+                        <!-- Will be populated by JavaScript -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include tracking script for Q2 -->
+    <script src="tracking.js"></script>
+    <!-- Include text analyzer script for Q3 -->
+    <script src="text-analyzer.js"></script>
+</body>
+</html>

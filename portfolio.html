@@ -3,21 +3,21 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="styling/portfolio.css">
+    <script src="tracking.js"></script>
 </head>
 <body>
-    
-    <nav class="nav-bar">
+      <nav class="nav-bar">
         <ul>
             <li><a href = "index.html">Home</a></li>
             <li><a href = "education.html">Education</a></li>
             <li><a href = "socials.html">Socials</a></li>
             <li><a href = "about.html">About</a></li>
             <li><a href = "portfolio.html">Portfolio</a></li>
+            <li><a href = "text-analyzer.html">Text Analyzer</a></li>
         </ul>
     </nav>
     <div class="transparent-box">
@@ -25,18 +25,16 @@
         
         <section class="portfolio-section">
             <h2 class="section-title">Projects</h2>
-            
-            <div class="project-card">
-                <img src="github-logo.png" alt="GitHub Logo" class="project-thumbnail">
+              <div class="project-card">
+                <img src="assets/github-logo.png" alt="GitHub Logo" class="project-thumbnail">
                 <h3 class="project-title"><a href="https://github.com/ramanan-b-r/2D-Platformer-Game" target="_blank">2D Platformer Game</a></h3>
                 <div class="tech-stack">
                     <span class="tech-badge python">Python</span>
                     <span class="tech-badge pygame">Pygame</span>
                 </div>
                 <p class="project-description">A 2D platformer game built using Python and the Pygame library. Features include character movement, collision detection, and dynamic level design.</p>
-            </div>
-            <div class="project-card">
-                <img src="github-logo.png" alt="GitHub Logo" class="project-thumbnail">
+            </div>            <div class="project-card">
+                <img src="assets/github-logo.png" alt="GitHub Logo" class="project-thumbnail">
                 <h3 class="project-title"><a href="https://github.com/ramanan-b-r/Image_Compressor" target="_blank">Image Compressor</a></h3>
                 <div class="tech-stack">
                     <span class="tech-badge python">Python</span>
@@ -208,5 +206,7 @@
             </div>
         </section>
     </div>
+    
+    <script src="tracking.js"></script>
 </body>
 </html>
