@@ -1,22 +1,18 @@
-// Text analyzer script for Q3
 document.addEventListener('DOMContentLoaded', function() {
     const analyzeButton = document.getElementById('analyzeButton');
       analyzeButton.addEventListener('click', function() {
         const text = document.getElementById('textInput').value;
         
-        // Perform the analysis regardless of word count
         analyzeText(text);
     });
 
     function analyzeText(text) {
-        // 1. Calculate letters, words, spaces, newlines, and special symbols
         const letters = (text.match(/[a-zA-Z]/g) || []).length;
         const words = countWords(text);
         const spaces = (text.match(/\s/g) || []).length;
         const newlines = (text.match(/\n/g) || []).length;
         const specialSymbols = (text.match(/[^\w\s]/g) || []).length;
 
-        // 2. Count pronouns
         const pronouns = {
             'i': 0, 'me': 0, 'my': 0, 'mine': 0, 'myself': 0,
             'you': 0, 'your': 0, 'yours': 0, 'yourself': 0, 'yourselves': 0,
@@ -28,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
             'this': 0, 'that': 0, 'these': 0, 'those': 0
         };
 
-        // 3. Count prepositions
         const prepositions = {
             'about': 0, 'above': 0, 'across': 0, 'after': 0, 'against': 0, 'along': 0, 
             'among': 0, 'around': 0, 'at': 0, 'before': 0, 'behind': 0, 'below': 0, 
@@ -41,12 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
             'within': 0, 'without': 0
         };
 
-        // 4. Count indefinite articles
         const indefiniteArticles = {
             'a': 0, 'an': 0, 'the': 0, 'some': 0, 'any': 0
         };
 
-        // Split text into tokens and count occurrences
         const tokens = text.toLowerCase().match(/\b\w+\b/g) || [];
 
         tokens.forEach(token => {
@@ -61,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Display the results
         displayResults({
             basicStats: { letters, words, spaces, newlines, specialSymbols },
             pronouns: filterZeroValues(pronouns),
@@ -85,16 +77,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayResults(results) {
-        // Basic statistics
         document.getElementById('lettersCount').textContent = results.basicStats.letters;
         document.getElementById('wordsCount').textContent = results.basicStats.words;
         document.getElementById('spacesCount').textContent = results.basicStats.spaces;
         document.getElementById('newlinesCount').textContent = results.basicStats.newlines;
         document.getElementById('specialSymbolsCount').textContent = results.basicStats.specialSymbols;
         
-        // Pronouns
         const pronounsTable = document.getElementById('pronounsTable');
-        pronounsTable.innerHTML = ''; // Clear previous results
+        pronounsTable.innerHTML = ''; 
         for (const pronoun in results.pronouns) {
             const row = pronounsTable.insertRow();
             const cell1 = row.insertCell(0);
@@ -102,10 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
             cell1.textContent = pronoun;
             cell2.textContent = results.pronouns[pronoun];
         }
-        
-        // Prepositions
-        const prepositionsTable = document.getElementById('prepositionsTable');
-        prepositionsTable.innerHTML = ''; // Clear previous results
+                const prepositionsTable = document.getElementById('prepositionsTable');
+        prepositionsTable.innerHTML = ''; 
         for (const preposition in results.prepositions) {
             const row = prepositionsTable.insertRow();
             const cell1 = row.insertCell(0);
@@ -114,9 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
             cell2.textContent = results.prepositions[preposition];
         }
         
-        // Indefinite Articles
         const articlesTable = document.getElementById('articlesTable');
-        articlesTable.innerHTML = ''; // Clear previous results
+        articlesTable.innerHTML = ''; 
         for (const article in results.indefiniteArticles) {
             const row = articlesTable.insertRow();
             const cell1 = row.insertCell(0);
@@ -125,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cell2.textContent = results.indefiniteArticles[article];
         }
         
-        // Show results container
         document.getElementById('resultsContainer').style.display = 'block';
     }
 });
